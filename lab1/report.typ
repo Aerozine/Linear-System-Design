@@ -1,5 +1,5 @@
 #import "@preview/subpar:0.2.2"
-#import "lib.typ": project
+#import "lib.typ": project 
 #import "@preview/dashy-todo:0.1.3": todo
 #import "@preview/wrap-it:0.1.1": *
 #set text(font: "xits")
@@ -49,12 +49,21 @@ The block diagram of a closed-loop system controlled with a PID controller can b
   edge-stroke: 0.8pt,
   node-corner-radius: 2pt,
   spacing: (14mm, 10mm),
+  node(
+    enclose: (<sum>, <pid>, <plant>, <tap>, <neg>, <fb1>, <fb2>),
+    stroke: (paint: gray, dash: "dashed", thickness: 0.8pt),
+    fill: none,
+    corner-radius: 4pt,
+    snap: false,
+    label: align(bottom + right)[$G_("ry")(s)$],
+    name: <box>
+  ),
   node((0,0), $r(s)$, stroke: none, name: <r>),
   node((1,0), $+$, shape: circle, width: 7mm, name: <sum>),
   node((2.5,0),
     align(center)[
-      $C(s)$ 
-      #v(-6pt)
+      $C(s)$ \
+      #v(-5pt)
       $= k_P + display(k_I/s) + display(k_D s)$
     ],
     width: 38mm, height: 16mm,
@@ -75,7 +84,7 @@ The block diagram of a closed-loop system controlled with a PID controller can b
     name: <neg>
   ),
   edge(<r>, <sum>, "-|>"),
-  edge(<sum>, <pid>, "-|>", label: $e(s)$, label-pos: 0.40),
+  edge(<sum>, <pid>, "-|>", label: $e(s)$, label-pos: 0.3),
   edge(<pid>, <plant>, "-|>", label: $u(s)$, label-pos: 0.45),
   edge(<plant>, <tap>, "-"),
   edge(<tap>, <y>, "-|>"),
