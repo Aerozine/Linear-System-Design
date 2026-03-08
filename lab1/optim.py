@@ -207,14 +207,6 @@ if __name__ == "__main__":
     )
     results["Q5"] = params
 
-    params, cost = random_search(
-        "Q6-PID Controller  (with noise + disturbance)",
-        n_samples=N,
-        use_noise=True, use_disturbance=True,
-        kd_fixed_zero=False
-    )
-    results["Q6"] = params
-
 
     print("\n" + "="*55)
     print("  FINAL RESULTS SUMMARY")
@@ -223,6 +215,4 @@ if __name__ == "__main__":
     print(f"  Q4 (PI)   kp={kp:.3f},  ki={ki:.3f}")
     kp, ki, kd = results["Q5"]
     print(f"  Q5 (PID)  kp={kp:.3f},  ki={ki:.3f},  kd={kd:.3f}")
-    kp, ki, kd = results["Q6"]
-    print(f"  Q6 (PID+) kp={kp:.3f},  ki={ki:.3f},  kd={kd:.3f}")
     print("="*55)
