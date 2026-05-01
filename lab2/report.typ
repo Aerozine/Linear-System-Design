@@ -432,7 +432,7 @@ burst at $omega^star = 4pi approx 12.6$ rad/s, well above $z_"PI"$, so the
 integrator is never excited. The Gang of Four reveals where the PI does matter:
 $S(s)$ satisfies $|S(j 0)| = 0$, guaranteeing zero steady-state tracking error,
 while $|P S(j 0)| = 0$ ensures constant disturbances are rejected entirely
-neither property holds for the lead-only controller.
+neither property holds for the lead-only controller.Finally, the PI block ensures the complementary sensitivity function achieves a magnitude of one at zero frequency ($|T(j0)|=1$). This characteristic guarantees that the system perfectly tracks constant reference commands, reaching the target value with zero steady-state error.
 
 #figure(
   image("q10.svg", width: 100%),
